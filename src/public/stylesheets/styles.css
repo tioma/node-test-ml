@@ -1,0 +1,51 @@
+body {
+	padding-top: 70px;
+	background-color: #EEEEEE;
+}
+
+html {
+	background-color: #EEEEEE;
+}
+
+.navbar-img {
+	height: 50px;
+	padding: 10px 10px;
+	vertical-align: middle;
+}
+
+.navbar-nav .navbar-form,
+.navbar-nav .navbar-form .form-group,
+.navbar-nav .navbar-form .form-group .input-group {
+	width: 100%;
+}
+
+.navbar-default {
+	background-color: #FFE600;
+}
+
+.input-group-btn > button {
+	background-color: #EEEEEE;
+}
+
+.prev-producto {
+	left: inherit;
+	top: inherit;
+	position: relative;
+}
+
+.prev-producto > img {
+	float: left;
+	height: 180px;
+	width: 180px;
+	border-radius: 4px;
+	margin: 18px 18px 18px 18px;
+}
+
+.prev-producto > h3 {
+	font-size: 24px;
+	margin-bottom: 32px;
+}
+
+.prev-producto > p {
+	font-size: 18px;
+}
