@@ -19,7 +19,7 @@ class Busqueda {
 		fullItems.forEach(fullItem => {
 			let item = new Item(fullItem);
 			item.address_city = fullItem.address.state_name;
-			items.push(new Item(fullItem))
+			items.push(item)
 		});
 
 		const response = {
@@ -40,7 +40,6 @@ class Busqueda {
 			rp(options).then(data => {
 				resolve(data);
 			}).catch(error => {
-				console.log(error);
 				reject(error);
 			});
 		})
@@ -60,7 +59,6 @@ class Busqueda {
 
 		return new Promise((resolve, reject) => {
 			Promise.all(apiCalls).then((responses) => {
-				console.log(responses);
 				const itemData = responses[0];
 				const itemDescription = responses[1];
 
