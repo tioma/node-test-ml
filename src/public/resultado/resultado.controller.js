@@ -3,9 +3,12 @@
  */
 mlApp.controller('resultadoCtrl', ['$stateParams', 'busquedaFactory', function($stateParams, busquedaFactory){
 	"use strict";
+	this.items = [];
+	this.categories = [];
 
 	busquedaFactory.buscar($stateParams.search).then(data => {
-		console.log(data);
+		this.categories = data.categories;
+		this.items = data.items;
 	}).catch(error => {
 		console.log(error);
 	})

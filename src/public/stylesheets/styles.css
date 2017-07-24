@@ -1,10 +1,20 @@
 body {
-	padding-top: 70px;
+	padding-top: 50px;
 	background-color: #EEEEEE;
 }
 
 html {
 	background-color: #EEEEEE;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.navbar-center {
+	width: 100%;
+	text-align: center;
+	display: inline-block;
 }
 
 .navbar-img {
@@ -13,10 +23,24 @@ html {
 	vertical-align: middle;
 }
 
-.navbar-nav .navbar-form,
-.navbar-nav .navbar-form .form-group,
-.navbar-nav .navbar-form .form-group .input-group {
+@media (min-width: 768px) {
+	.navbar-center .navbar-form {
+		display: inline-block;
+		width: 70%;
+	}
+}
+
+.navbar-center .navbar-form .form-group,
+.navbar-center .navbar-form .form-group .input-group {
 	width: 100%;
+}
+
+.navbar-form .input-group .input-group-btn {
+	width: 1%;
+}
+
+.form-control {
+	font-size: 18px;
 }
 
 .navbar-default {
@@ -27,10 +51,32 @@ html {
 	background-color: #EEEEEE;
 }
 
+.breadcrumb {
+	background-color: #EEEEEE;
+	margin: 16px 0 16px 0;
+	padding: 0;
+}
+
+.breadcrumb > li + li:before {
+	content: "> ";
+	padding: 0 5px;
+}
+
+.product-list {
+	width: 100%;
+	float: left;
+	background-color: white;
+	border-radius: 4px;
+}
+
 .prev-producto {
-	left: inherit;
-	top: inherit;
-	position: relative;
+	width: 100%;
+	display: block;
+	float: left;
+}
+
+.prev-producto:hover {
+	cursor: pointer;
 }
 
 .prev-producto > img {
@@ -44,8 +90,50 @@ html {
 .prev-producto > h3 {
 	font-size: 24px;
 	margin-bottom: 32px;
+	margin-top: 32px;
 }
 
 .prev-producto > p {
 	font-size: 18px;
+}
+
+hr {
+	clear:both;
+	margin: 0 18px 0 18px;
+	border-top: 2px solid #EEEEEE;
+}
+
+.product-detail {
+	background-color: white;
+	border-radius: 4px;
+	float: left;
+}
+
+#product > img {
+	float: left;
+	height: 680px;
+	margin: 18px;
+}
+
+#product > h5 {
+	font-size: 14px;
+	padding-top: 32px;
+}
+
+#product > h3 {
+	margin: 16px 0 0 16px;
+}
+
+.product-description {
+	float: left;
+}
+
+.product-description > h3 {
+	font-size: 28px;
+	margin: 0 0 32px 32px;
+}
+
+.product-description > div {
+	font-size: 16px;
+	margin: 0 0 32px 32px;
 }

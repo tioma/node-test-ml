@@ -2,23 +2,83 @@
  * Created by kolesnikov-a on 04/05/2017.
  */
 import rp from 'request-promise';
+import appConfig from '../config/config';
+import Item from './item.class';
 
 class Busqueda {
+
+	static procesarDatosItems(datos, cantidad){
+		let fullItems = datos.results.slice(0, cantidad);
+		let sortedCategories  = datos.available_filters[0].values.sort((a, b) => {
+			return a.results - b.results
+		}).map(categorie => {
+			return categorie.name;
+		});
+
+		let items = [];
+		fullItems.forEach(fullItem => {
+			let item = new Item(fullItem);
+			item.address_city = fullItem.address.state_name;
+			items.push(new Item(fullItem))
+		});
+
+		const response = {
+			author: appConfig.author,
+			categories: sortedCategories,
+			items: items
+		};
+
+		return response;
+	}
 
 	static buscarItems(param){
 		const options = {
 			uri: `https://api.mercadolibre.com/sites/MLA/search?q=${param}`,
-			json: true // Automatically parses the JSON string in the response
+			json: true
 		};
 		return new Promise((resolve, reject) => {
 			rp(options).then(data => {
-				console.log(data);
 				resolve(data);
 			}).catch(error => {
 				console.log(error);
 				reject(error);
 			});
 		})
+	}
+
+	static verDetalleItem(itemId){
+		const optionsItemId = {
+			uri: `https://api.mercadolibre.com/items/${itemId}`,
+			json: true
+		};
+		const optionsItemDescription = {
+			uri: `https://api.mercadolibre.com/items/${itemId}/description`,
+			json: true
+		};
+
+		let apiCalls = [rp(optionsItemId), rp(optionsItemDescription)];
+
+		return new Promise((resolve, reject) => {
+			Promise.all(apiCalls).then((responses) => {
+				console.log(responses);
+				const itemData = responses[0];
+				const itemDescription = responses[1];
+
+				const item = new Item(itemData);
+				item.sold_quantity = itemData.sold_quantity;
+				item.description = itemDescription.plain_text;
+
+				const response = {
+					author: appConfig.author,
+					item: item
+				};
+				resolve(response);
+			}).catch((error) => {
+				reject(error);
+			})
+
+		})
+
 	}
 }
 
