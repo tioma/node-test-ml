@@ -27,6 +27,7 @@ class Item {
 		this.picture = itemData.thumbnail;
 		this.condition = itemData.condition;
 		this.free_shipping = itemData.shipping.free_shipping;
+		this.category_id = itemData.category_id;
 	}
 
 

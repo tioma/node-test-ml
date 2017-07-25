@@ -1,13 +1,14 @@
 <ol class="breadcrumb">
-	<li class="breadcrumb-item">Home</li>
-	<li class="breadcrumb-item active">Search</li>
+	<li ng-repeat="categoria in vmResultado.categories | limitTo:5" class="breadcrumb-item" ng-class="$last ? 'active' : ''">{{ categoria }}</li>
 </ol>
 
 <div class="product-list">
 	<div ng-repeat="item in vmResultado.items">
 		<div class="prev-producto" ui-sref="busqueda.detalle({id: item.id})">
 			<img ng-src="{{ item.picture }}">
+			<h5>{{ item.address_city }}</h5>
 			<h3>{{ item.price.amount | currency : '$ '}} <img src="./img/ic_shipping.png" ng-if="item.free_shipping"></h3>
+
 			<h4>{{ item.title }}</h4>
 		</div>
 		<hr>

@@ -7,6 +7,7 @@ import appConfig from './config/config';
 import path from 'path';
 
 import items from './routes/items.routes';
+import categorias from './routes/categories.routes';
 
 /*var index = require('./routes/index');
 var users = require('./routes/users');*/
@@ -24,6 +25,7 @@ const indexPath = path.join(__dirname, 'public');
 app.use(express.static(indexPath));
 
 app.use('/api/items', items);
+app.use('/api/categorias', categorias);
 
 app.get('/*', (req, res) => {
 	res.sendFile(indexPath  + '/index.html');

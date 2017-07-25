@@ -1,7 +1,7 @@
 /**
  * Created by Artiom on 18/07/2017.
  */
-mlApp.controller('detalleCtrl', ['$stateParams', 'busquedaFactory', '$sce', function($stateParams, busquedaFactory, $sce){
+mlApp.controller('detalleCtrl', ['$stateParams', 'busquedaFactory', function($stateParams, busquedaFactory){
 	"use strict";
 	this.item = null;
 
@@ -11,35 +11,22 @@ mlApp.controller('detalleCtrl', ['$stateParams', 'busquedaFactory', '$sce', func
 		console.log(error);
 	});
 
-	this.trustHtml = (data) => {
-		console.log('si, paso por aca');
-		console.log($sce.trustAsHtml(data));
-		return $sce.trustAsHtml(data);
-	}
-
 }]);
 
 mlApp.filter('productCondition', [function(){
 	"use strict";
 	return function(input){
 		if (!input) return '';
-		if (input == 'new') return 'Nuevo'
+		if (input == 'new') return 'Nuevo';
+		if (input == 'used') return 'Usado';
 	}
 }]);
 
-mlApp.filter('productDescription', ['$sce', function($sce){
+mlApp.filter('toTrustedHtml', ['$sce', function($sce){
 	"use strict";
-
 	return function(input) {
 		if (!input) return '';
 
-
-		let output = '';
-		input.split("\r\n").forEach((paragraph) => {
-			output += '<p>' + paragraph + '</p>';
-		});
-
-		return $sce.trustAsHtml(output);
+		return $sce.trustAsHtml(input);
 	};
-
 }]);

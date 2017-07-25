@@ -64,7 +64,14 @@ class Busqueda {
 
 				const item = new Item(itemData);
 				item.sold_quantity = itemData.sold_quantity;
-				item.description = itemDescription.plain_text;
+				if (itemDescription.text){
+					item.description = itemDescription.text
+				} else {
+					item.description = '';
+					itemDescription.plain_text.split('\r\n').forEach((parrafo) => {
+						item.description += `<p>${parrafo}</p>`;
+					})
+				}
 
 				const response = {
 					author: appConfig.author,
@@ -74,9 +81,24 @@ class Busqueda {
 			}).catch((error) => {
 				reject(error);
 			})
-
 		})
+	}
 
+	static obtenerCategoria(idCategoria){
+		const options = {
+			uri: `https://api.mercadolibre.com/categories/${idCategoria}`,
+			json: true
+		};
+		return new Promise((resolve, reject) => {
+			rp(options).then(data => {
+				const categorias = data.path_from_root.map(categoria => {
+					return categoria.name;
+				});
+				resolve(categorias);
+			}).catch(error => {
+				reject(error);
+			});
+		})
 	}
 }
 

@@ -26,7 +26,7 @@ html {
 @media (min-width: 768px) {
 	.navbar-center .navbar-form {
 		display: inline-block;
-		width: 70%;
+		width: 80%;
 	}
 }
 
@@ -84,7 +84,7 @@ html {
 	height: 180px;
 	width: 180px;
 	border-radius: 4px;
-	margin: 18px 18px 18px 18px;
+	margin: 16px 16px 16px 16px;
 }
 
 .prev-producto > h3 {
@@ -97,6 +97,14 @@ html {
 	font-size: 18px;
 }
 
+.prev-producto > h5 {
+	position: relative;
+	float: right;
+	font-size: 12px;
+	margin-top: 50px;
+	margin-right: 60px;
+}
+
 hr {
 	clear:both;
 	margin: 0 18px 0 18px;
@@ -106,16 +114,19 @@ hr {
 .product-detail {
 	background-color: white;
 	border-radius: 4px;
-	float: left;
+	width: 100%;
+	overflow: hidden;
 }
 
 #product > img {
 	float: left;
 	height: 680px;
-	margin: 18px;
+	margin: 16px;
+	border-radius: 4px;
 }
 
 #product > h5 {
+	margin-top: 0;
 	font-size: 14px;
 	padding-top: 32px;
 }
@@ -124,8 +135,19 @@ hr {
 	margin: 16px 0 0 16px;
 }
 
+#product > h1 {
+	margin: 32px 0 0 0;
+}
+
+#product > button {
+	background-color: #3483FA;
+	margin: 32px 32px 0 0;
+	border: none;
+}
+
 .product-description {
 	float: left;
+	width: 680px;
 }
 
 .product-description > h3 {
