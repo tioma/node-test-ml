@@ -7,23 +7,28 @@
 	<title>Test Frontend ML</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- build:css -->
 	<link rel="stylesheet" href="stylesheets/bootstrap.css">
 	<link rel="stylesheet" href="stylesheets/styles.css">
-	<!--<link rel="stylesheet" href="stylesheets/app.css">-->
+	<!-- endbuild -->
 </head>
 <body class="container">
 
 <div ui-view></div>
 
+<!-- build:bower -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<!-- endbuild -->
+<!-- build:app -->
 <script src="app.js"></script>
 <script src="busqueda/busqueda.controller.js"></script>
 <script src="resultado/resultado.controller.js"></script>
 <script src="detalle/detalle.controller.js"></script>
 <script src="busqueda/busqueda.factory.js"></script>
 <script src="class/item.class.js"></script>
+<!-- endbuild -->
 </body>
 </html>
