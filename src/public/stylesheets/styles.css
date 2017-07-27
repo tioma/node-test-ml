@@ -12,7 +12,6 @@ html {
 }
 
 .navbar-center {
-	width: 100%;
 	text-align: center;
 	display: inline-block;
 }
@@ -55,6 +54,11 @@ html {
 	background-color: #EEEEEE;
 	margin: 16px 0 16px 0;
 	padding: 0;
+	color: #999999
+}
+
+.breadcrumb .active {
+	color: #666666;
 }
 
 .breadcrumb > li + li:before {

@@ -76,6 +76,7 @@ gulp.task('copy-files', function(){
 		gulp.src(templates[template])
 			.pipe(gulp.dest('build/public/' + template))
 	}
+	gulp.src('src/public/favicon.ico').pipe(gulp.dest('build/public'));
 });
 
 gulp.task('copy-libs', function(){

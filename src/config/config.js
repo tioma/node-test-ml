@@ -3,7 +3,7 @@
  */
 
 const appConfig = {
-	log_level: 'debug',
+	log_level: 'dev',
 	author: {
 		name: 'Artiom',
 		lastname: 'Kolesnikov'
