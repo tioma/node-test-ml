@@ -1,0 +1,19 @@
+<div class="col-md-offset-1 col-md-10">
+	<ol class="breadcrumb">
+		<li ng-repeat="categoria in vmDetalle.item.categorias" class="breadcrumb-item" ng-class="$last ? 'active' : ''">{{ categoria }}</li>
+	</ol>
+
+	<div class="product-detail" ng-if="vmDetalle.item">
+		<div id="product">
+			<img ng-src="{{ vmDetalle.item.picture }}">
+			<h5>{{ (vmDetalle.item.condition | productCondition) + ' - ' + vmDetalle.item.sold_quantity + ' vendidos'}}</h5>
+			<h3>{{ vmDetalle.item.title }}</h3>
+			<h1>{{ vmDetalle.item.price.amount | currency : '$ '}}</h1>
+			<button class="btn btn-primary btn-lg" ng-click="vmDetalle.item.comprar()">Comprar</button>
+		</div>
+		<div class="product-description">
+			<h3>Descripción del producto</h3>
+			<div ng-bind-html="vmDetalle.item.description | toTrustedHtml"></div>
+		</div>
+	</div>
+</div>

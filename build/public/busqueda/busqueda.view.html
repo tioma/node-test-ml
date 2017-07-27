@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+
+		<div class="nav navbar-center col-md-offset-1 col-md-10">
+			<img class="navbar-img" height="40" src="./img/Logo_ML@2x.png">
+
+			<form class="navbar-form">
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" class="form-control" ng-model="vmBusqueda.textoBuscar" placeholder="Nunca dejes de buscar">
+						<span class="input-group-btn"><button class="btn btn-default" ui-sref=".resultado({search: vmBusqueda.textoBuscar})"><img src="./img/ic_Search.png"></button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</nav>
+
+<div ui-view></div>
+
