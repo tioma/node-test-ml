@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": false,
   "scripts": {
+    "postinstall": "bower install",
     "dist": "gulp",
     "serve": "node build/app.js",
     "start": "npm run dist && npm run serve"

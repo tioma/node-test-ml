@@ -9,7 +9,7 @@ var cleanCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 
 gulp.task('minify', function () {
-	gulp.src(['!src/public/bower_components/**/*.js', 'src/**/*.js'])
+	gulp.src(['!src/public/components/**/*.js', 'src/**/*.js'])
 		.pipe(babel({
 			presets: ['es2015']
 		}))
@@ -43,10 +43,10 @@ gulp.task('html-replace', function(){
 			},
 			bower: {
 				src: [
-					'bower_components/angular/angular.min.js',
-					'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-					'bower_components/angular-sanitize/angular-sanitize.min.js',
-					'bower_components/angular-ui-router/angular-ui-router.min.js'
+					'components/angular/angular.min.js',
+					'components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+					'components/angular-sanitize/angular-sanitize.min.js',
+					'components/angular-ui-router/angular-ui-router.min.js'
 				]
 			},
 			app: {
@@ -89,8 +89,8 @@ gulp.task('copy-libs', function(){
 	};
 
 	for (var lib in bower){
-		gulp.src('src/public/bower_components/' + bower[lib])
-			.pipe(gulp.dest('build/public/bower_components/' + lib));
+		gulp.src('src/public/components/' + bower[lib])
+			.pipe(gulp.dest('build/public/components/' + lib));
 	}
 });
 
